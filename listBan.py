@@ -20,7 +20,9 @@ hello = """███  ██
                                        ███████████████  ███████████    ████         █████████
                                         ██                  ████\n\n"""
 
-from pyautogui import *
+
+from pyautogui import moveTo, click, press
+from keyboard import write, wait
 from crayons import *
 from datetime import datetime
 from pynput import keyboard
@@ -50,24 +52,31 @@ def tela():
     print(green("-"*55))
     return pos
     
-def open_ids(path):
+def open_ids():
     """Abre o arquico txt contendo os ids"""
 
-    global run, ids
+    global ids
 
-    try: 
-        arquiv = open(path, "r")
-
+    def f_open(f):
+        arquiv = open(f, "r")
         for line in arquiv:
             ids.append(line[:18])
-
         arquiv.close()
-
         print(green(f"arquivo aberto com sucesso! ({len(ids)} linhas)"))
+
+    try: 
+        path = "idss.txt"
+        f_open(path)
         return True
     except FileNotFoundError:
-        print(red(f"Não foi possível abrir o arquivo {path}"))
-        return False
+        try: 
+            print(red("O arquivo ids.txt padrão não foi encontrado"))
+            path = input("Caminho do arquivo contendo os ids a ser usado: ")
+            f_open(path)
+            return True
+        except FileNotFoundError:
+            print(red(f"Não foi possível abrir o arquivo {path}"))
+            return False
 
 def enviar(msg):
     """Envia uma mensagem"""
@@ -75,19 +84,18 @@ def enviar(msg):
     moveTo(pos)
     click()
     write(msg)
-    keyDown("enter")
-    keyUp("enter")
+    press("enter")
 
 if __name__ == "__main__":
     print(green(hello))
-    pos = tela()
+    pos    = tela()
     reason = input("reason dos bans: ")
-    path   = input("path do arquivo contendo os id's a serem banidos: ")
-    print(green("-"*55))
-    print(green("\nIniciando o processo.."))
+    run    = open_ids()
 
     # Procurando pelos ids
-    if open_ids(path):
+    if run:
+        print(green("-"*55))
+        print(green("\nIniciando o processo.."))
         print(green("\nMantenha a tecla ESC pressionada para interromper"))
         print(green("Começando a enviar os comandos\n"))
 
@@ -99,7 +107,7 @@ if __name__ == "__main__":
             dat = datetime.now()
             moment = f"{dat.hour}:{dat.minute}:{dat.second}"
 
-            print(green(f"[{moment}] [{atual}/{len(ids)}] comando utilizado para o id: {ids[atual]}"))
+            print(green(f"[{moment}] [{atual + 1}/{len(ids)}] comando utilizado para o id: {ids[atual]}"))
             time.sleep(4)
             
             # Verificando se o usuário quer interromper os comandos
@@ -111,12 +119,13 @@ if __name__ == "__main__":
                 break
 
             if atual + 1 == len(ids):
-                enviar(f"-- Todos os comandos enviados [{atual}/{len(ids)}]")
+                enviar(f"-- Todos os comandos enviados [{atual + 1}/{len(ids)}]")
                 print(green("\n" + "-"*55))
                 print(green("Lista completa.\n"))
 
 
 # Para o script não encerrar após o uso:
 while True:
-    input("\n------ press ENTER to close ------")
+    print(green("\n----------------- press ENTER to close ----------------"))
+    wait("enter")
     break
