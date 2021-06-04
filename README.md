@@ -1,4 +1,8 @@
 # Sequence Ban
+
+Install [sequence-ban-v1.2.zip](https://github.com/Ka-Konata/sequence-ban/files/6600567/sequence-ban-v1.2.zip)
+
+*Or use the developer version:*
  
 Made to ban a previously defined list of ids, controlling the mouse and keyboard to send the commands
 

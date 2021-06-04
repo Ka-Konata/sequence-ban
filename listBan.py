@@ -22,10 +22,9 @@ hello = """███  ██
 
 
 from pyautogui import moveTo, click, press
-from keyboard import write, wait
+from keyboard import write, wait, is_pressed
 from crayons import *
 from datetime import datetime
-from pynput import keyboard
 import time
 
 ids = list()
@@ -65,7 +64,7 @@ def open_ids():
         print(green(f"arquivo aberto com sucesso! ({len(ids)} linhas)"))
 
     try: 
-        path = "idss.txt"
+        path = "ids.txt"
         f_open(path)
         return True
     except FileNotFoundError:
@@ -111,9 +110,7 @@ if __name__ == "__main__":
             time.sleep(4)
             
             # Verificando se o usuário quer interromper os comandos
-            with keyboard.Events() as events:
-                event = events.get(1.0)
-            if event and event.key == keyboard.Key.esc:
+            if is_pressed('esc'):
                 enviar(f"-- Processo interrompido [{atual + 1}/{len(ids)}]")
                 print(red(f"""\nPrograma interrompido com ESC \nStatus atual: {0 if len(ids) == 0 else atual + 1} comandos utilizados de {len(ids)} \nUltimo id: {ids[atual]}"""))
                 break
