@@ -18,7 +18,7 @@ hello = """███  ██
                                        ███████████████  ███████████    ████         █████████
                                         ██                  ████"""
 
-version = 'Sequence Ban - v2.0 (pre-release)'
+version = 'Sequence Ban - v2.1 (pre-release)'
 
 msg_1 = '''----------- Escolha o modo que deseja usar ------------
 Digite o número correspondente a sua scolha
@@ -28,7 +28,7 @@ Digite o número correspondente a sua scolha
 [4] - Vortex (customizado) [indisponível]
 
 [5] - Atualizar as configurações de preferência [indisponível]
-[6] - Fechar [insdisponível]'''
+[6] - Fechar'''
 
 msg_2 = '''-------------------------------------------------------
 Iniciando o processo..

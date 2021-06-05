@@ -3,6 +3,7 @@
 from bots import dyno, vortex
 from cogs import setter
 from cogs import utils
+from cogs import default
 import cogs.texts as txt
 
 from keyboard  import wait, is_pressed
@@ -12,40 +13,15 @@ import time
 
 ids = list()
 
-class padrao:
-    def __init__(self):
-        '''Define os valores padrão'''
-
-        import json
-        try:
-            with open('confgs.json', 'r', encoding='utf-8') as f:
-                configs = json.load(f)
-                f.close()
-        except FileNotFoundError:
-            configs = {
-                'reason': 'selfbot/raid [sequence-ban used]',
-                'pos': [50, 700],
-                'path': 'ids.txt',
-                'slowmode-dyno': 4,
-                'slowmode-vortex': 20
-            }
-            with open('confgsaa.json', 'w', encoding='utf-8') as f:
-                default = json.dump(configs, f, indent=4)
-                f.close()
-
-        self.pos             = configs['pos']
-        self.reason          = configs['reason']
-        self.path            = configs['path']
-        self.slowmode_dyno   = configs['slowmode-dyno']
-        self.slowmode_vortex = configs['slowmode-vortex']
-
-
-class main(padrao):
+class main(default.padrao):
     def __init__(self):
         super().__init__()
 
 
     def run(self):
+        global ids
+
+        utils.clear_screen()
         print(cl.green(txt.hello))
         utils.slow_print(txt.version)
         time.sleep(1)
@@ -56,7 +32,7 @@ class main(padrao):
         while True:
             try:
                 mode = int(input('Sua escolha: '))
-                if not 1 <= mode <= 5:
+                if not 1 <= mode <= 6:
                     utils.clear_screen()
                     print(cl.red('Sua escolha não corresponde a nenhum modo existente'))
                     print(cl.green(txt.msg_1))
@@ -67,8 +43,9 @@ class main(padrao):
                 print(cl.green(txt.msg_1))
 
         customized = True if mode == 2 or mode == 4 else False
-        ids        = setter.open_ids(self.path, customized=customized)
-        if len(ids) > 0:
+        if mode != 6: ids = setter.open_ids(self.path, customized=customized, padrao=self.path)
+
+        if len(ids) > 0 or mode == 6:
             obj_vortex = vortex.Obj(self.reason, ids, self.pos)
             stoped  = False
 
@@ -126,18 +103,25 @@ class main(padrao):
                 print(cl.red('[ERROR] - Modo 5, atualizar as configurações de preferência ainda não funciona nesta versão'))
                 stoped=True
 
+            elif mode == 6:
+                quit()
+
             if not stoped:
                 choice.enviar(f'-- Todos os comandos enviados [{len(ids)}/{len(ids)}]')
                 print(cl.green('\n' + '-'*55))
                 print(cl.green('Lista completa.\n'))
+
+        print(cl.green('\n--------------- ENTER para voltar para o menu | ESC para fechar ---------------'))
 
 
 # Iniciando o programa
 if __name__ == '__main__':
     main().run()
 
-# Para o script não encerrar após o uso:
-while True:
-    print(cl.green('\n----------------- press ENTER to close ----------------'))
-    wait('enter')
-    break
+    while True:
+        if is_pressed('esc'):
+            utils.clear_screen()
+            quit()
+
+        if is_pressed('enter'):
+            main().run()

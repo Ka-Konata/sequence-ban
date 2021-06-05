@@ -32,7 +32,7 @@ def set_postion(default_position):
                     print(cl.red('Posição inválida'))
 
 
-def open_ids(path, customized=False):
+def open_ids(path, customized=False, padrao='ids.txt'):
     '''Abre o arquivo txt contendo os ids'''
 
     def f_open(f):
@@ -50,10 +50,10 @@ def open_ids(path, customized=False):
             return ids
         except FileNotFoundError:
             try: 
-                if not customized: print(cl.red('O arquivo ids.txt padrão não foi encontrado'))
+                if not customized: print(cl.red(f'O arquivo {padrao} padrão não foi encontrado'))
                 print(cl.green(txt.msg_3))
                 path = str(input('path: '))
-                if path in 'padrão/padrao/p': path = 'ids.txt'
+                if path in 'padrão/padrao/p': path = padrao
                 utils.clear_screen()
                 ids = f_open(path)
                 return ids
