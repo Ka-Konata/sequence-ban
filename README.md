@@ -2,7 +2,7 @@
 
 Install [sequence-ban-v1.2.zip](https://github.com/Ka-Konata/sequence-ban/files/6600567/sequence-ban-v1.2.zip)
 
-Install [sequence-ban-v2.0(pre-release).zip](https://github.com/Ka-Konata/sequence-ban/files/6602120/sequence-ban-v2.0.pre-release.zip)
+Install [sequence-ban-v2.0(**pre-release**).zip](https://github.com/Ka-Konata/sequence-ban/files/6602120/sequence-ban-v2.0.pre-release.zip)
 
 *Or use the developer version*
  
@@ -18,7 +18,7 @@ Feito para banir uma lista pré-definida de ids, controlando o teclado e o mouse
 297153970613387264
 ~~~
 
-* **So start the program** `listBan.exe`
+* **Então inicie o programa** `listBan.exe`
 
 * **Selecione o modo que deseja usar (de preferência o modo 2 `dyno customizado` que vai ser ensinado a usar aqui)**
 
