@@ -12,11 +12,10 @@ class Obj:
         self.pos    = pos
 
 
-    def ban(self, atual, customized=False, pos=None):
+    def ban(self, atual):
         '''Envia o comando de ban'''
 
         self.atual = atual
-        if customized: self.pos = pos
         moveTo(self.pos)
         click()
         write(f'?ban {self.ids[atual]} {self.reason}')
