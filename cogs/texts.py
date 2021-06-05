@@ -28,7 +28,7 @@ Digite o número correspondente a sua scolha
 [4] - Vortex (customizado) [indisponível]
 
 [5] - Atualizar as configurações de preferência
-[6] - Fechar'''
+[6] - Fechar \n'''
 
 msg_2 = '''-------------------------------------------------------
 Iniciando o processo..
@@ -65,4 +65,4 @@ Deseja salvar as alterações feitas como padrão?
 Responda com default para voltar as configurações de fabrica
 Responda com sim/s ou nao/n \n'''
 
-msg_9 = 'Evite tentar usar o computador (tanto o omouse quanto o teclado) durante a execução do programa, pois como ele estará controlando a sua tela o programa provavelmente sairá de controle, então NÃO USE a não ser q seja para INTERROMPER o programa, para isso apenas aperte e segure a tecla ESC'
+msg_9 = 'Evite tentar usar o computador (tanto o omouse quanto o teclado) durante a execução do programa, pois como ele estará controlando a sua tela o programa provavelmente sairá de controle, então NÃO USE a não ser q seja para INTERROMPER o programa, para isso apenas aperte e segure a tecla DELETE'
