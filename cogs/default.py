@@ -12,7 +12,8 @@ class padrao:
             'pos': [50, 962],
             'path': 'ids.txt',
             'slowmode-dyno': 4,
-            'slowmode-vortex': 20
+            'slowmode-vortex': 20,
+            'first-time':True
         }
 
         try:
@@ -30,6 +31,7 @@ class padrao:
         self.path            = self.configs['path']
         self.slowmode_dyno   = self.configs['slowmode-dyno']
         self.slowmode_vortex = self.configs['slowmode-vortex']
+        self.first_time      = self.configs['first-time']
         self.ids             = list()
 
 
@@ -64,7 +66,8 @@ class padrao:
                 'pos': self.pos,
                 'path': self.path,
                 'slowmode-dyno': self.slowmode_dyno,
-                'slowmode-vortex': self.slowmode_vortex
+                'slowmode-vortex': self.slowmode_vortex,
+                'first-time':False
             }
 
         with open('configs.json', 'w', encoding='utf-8') as f:

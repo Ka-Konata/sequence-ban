@@ -2,7 +2,7 @@
 
 Install [sequence-ban-v1.2.zip](https://github.com/Ka-Konata/sequence-ban/files/6600567/sequence-ban-v1.2.zip)
 
-Install [sequence-ban-v2.0(**pre-release**).zip](https://github.com/Ka-Konata/sequence-ban/files/6602120/sequence-ban-v2.0.pre-release.zip)
+Install [sequence-ban-v2.1(**pre-release**).zip](https://github.com/Ka-Konata/sequence-ban/files/6603240/sequence-banv2.1.pre-release.zip) *(Recomendado)*
 
 *Or use the developer version*
  
@@ -17,22 +17,28 @@ Feito para banir uma lista pré-definida de ids, controlando o teclado e o mouse
 432610292342587392
 297153970613387264
 ~~~
+*Se não fizer isso, nada irá acontecer*
 
 * **Então inicie o programa** `listBan.exe`
 
-* **Selecione o modo que deseja usar (de preferência o modo 2 `dyno customizado` que vai ser ensinado a usar aqui)**
+* **Após aparecer a janela de aviso **LEIA** e em seguida clique em `NÃO MOSTRAR NOVAMENTE`**
+
+* **Selecione o modo 5 para configurar o programa e funcionar melhor**
 
 * **Posicione seu mouse sobre a caixa de texto do discord**
 ![example](https://user-images.githubusercontent.com/69207529/120882299-207cdc80-c5ad-11eb-8f6d-f40674c396e3.png)
 
-* **Pressione DELETE para confirmar a posição**
+* **Pressione `delete` para confirmar a posição**
 
-* **Escreva o reason que será usado**
+* **Escreva o reason que será usado ou use a padrão**
 
-* **Pressione P para usar o arquivo de ids padrão ou use outro arquivo txt, nesse caso seu path deverá se parecer com isso aqui: `C:\Users\name\Documents\saved\ids.txt`**
+* **Pressione `p` para usar o arquivo de ids padrão ou use outro arquivo txt, nesse caso seu path deverá se parecer com isso aqui: `C:\Users\name\Documents\saved\ids.txt`**
 
-* **Digite 4 para ter um intervalo de 4 segundos em cada mensagem**
+* **Coloque um intervalo de tempo de 4 segundos para o Dyno e 60 para o vortex** *- os modos do vortex ainda não funcionam*
 
--------------------[WARN]-------------------
+* **Salve as alterações**
 
-**Evite tentar usar o computador (tanto o omouse quanto o teclado) durante a execução do programa, pois como ele estará controlando a sua tela o programa provavelmente sairá de controle, então NÃO USE a não ser q seja para INTERROMPER o programa, para isso apenas aperte e segure a tecla ESC**
+* **Volte para o menu**
+
+* **Selecione o modo 1 para iniciar o processo**
+*o modo 5 só precisa ser executado uma vez (para funcionar na sua máquina), nas outras vezes você pode apenas usar o modo 1. A não ser que você queira mudar algo, nesse caso use o modo 5 ou apenas o modo 2, que é basicamente uma mistura desses outros dois*
