@@ -1,6 +1,6 @@
 # Sequence Ban
 
-Install [sequence-ban-v1.2.zip](https://github.com/Ka-Konata/sequence-ban/files/6602120/sequence-ban-v2.0.pre-release.zip)
+Install [sequence-ban-v2.0.zip](https://github.com/Ka-Konata/sequence-ban/files/6602120/sequence-ban-v2.0.pre-release.zip)
 
 *Or use the developer version*
  
