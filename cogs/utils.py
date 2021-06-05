@@ -21,10 +21,10 @@ def clear_screen():
 def stop_request(obj):
     '''Detecta um clique do teclado que para o processo de banimento'''
 
-    if is_pressed('esc'):
+    if is_pressed('delete'):
         obj.enviar(f'-- Processo interrompido [{obj.atual + 1}/{len(obj.ids)}]')
         print(cl.red(f'''
-Programa interrompido com ESC 
+Programa interrompido com DELETE 
 Status atual: {0 if len(obj.ids) == 0 else obj.atual + 1} comandos utilizados de {len(obj.ids)} 
 Ultimo id: {obj.ids[obj.atual]}'''))
         return True
