@@ -20,6 +20,7 @@ class main(default.padrao):
     def run(self):
         global ids
 
+        utils.clear_screen()
         if self.first_time:
             resp = confirm(txt.msg_9, title='AVISO IMPORTANTE', buttons=['OK', 'NÃO MOSTRAR NOVAMENTE'])
 
@@ -28,7 +29,6 @@ class main(default.padrao):
                 self.configs['first-time'] = False
 
 
-        utils.clear_screen()
         print(cl.green(txt.hello))
         utils.slow_print(txt.version)
         time.sleep(1)
