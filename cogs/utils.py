@@ -29,3 +29,12 @@ Status atual: {0 if len(obj.ids) == 0 else obj.atual + 1} comandos utilizados de
 Ultimo id: {obj.ids[obj.atual]}'''))
         return True
     else: return False
+
+
+def first_time(configs):
+    import json
+    configs['first-time'] = False
+
+    with open('configs.json', 'w', encoding='utf-8') as f:
+        json.dump(configs, f, indent=4)
+        f.close()

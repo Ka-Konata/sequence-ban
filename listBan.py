@@ -6,7 +6,8 @@ from cogs import utils
 from cogs import default
 import cogs.texts as txt
 
-from keyboard  import wait, is_pressed
+from keyboard  import is_pressed
+from pyautogui import confirm
 from datetime  import datetime
 import crayons as cl
 import time
@@ -18,6 +19,14 @@ class main(default.padrao):
 
     def run(self):
         global ids
+
+        if self.first_time:
+            resp = confirm(txt.msg_9, title='AVISO IMPORTANTE', buttons=['OK', 'NÃO MOSTRAR NOVAMENTE'])
+
+            if resp == 'NÃO MOSTRAR NOVAMENTE':
+                utils.first_time(self.configs)
+                self.configs['first-time'] = False
+
 
         utils.clear_screen()
         print(cl.green(txt.hello))
@@ -103,7 +112,7 @@ class main(default.padrao):
                 print(cl.green('\n' + '-'*55))
                 print(cl.green('Lista completa.\n'))
 
-        print(cl.green('\n--------------- DELETE para voltar para o menu | ESC para fechar ---------------'))
+        print(cl.green('\n--------------- ENTER para voltar para o menu | ESC para fechar ---------------'))
 
 
 # Iniciando o programa
@@ -115,5 +124,5 @@ if __name__ == '__main__':
             utils.clear_screen()
             quit()
 
-        if is_pressed('delete'):
+        if is_pressed('enter'):
             main().run()

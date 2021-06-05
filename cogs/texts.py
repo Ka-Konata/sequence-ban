@@ -64,3 +64,5 @@ msg_8 = '''-------------------------------------------------------
 Deseja salvar as alterações feitas como padrão?
 Responda com default para voltar as configurações de fabrica
 Responda com sim/s ou nao/n \n'''
+
+msg_9 = 'Evite tentar usar o computador (tanto o omouse quanto o teclado) durante a execução do programa, pois como ele estará controlando a sua tela o programa provavelmente sairá de controle, então NÃO USE a não ser q seja para INTERROMPER o programa, para isso apenas aperte e segure a tecla ESC'
