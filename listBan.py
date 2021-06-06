@@ -8,6 +8,7 @@ import cogs.texts as txt
 
 from keyboard  import wait, is_pressed
 from datetime  import datetime
+from math      import ceil
 import crayons as cl
 import time
 
@@ -47,40 +48,41 @@ class main(default.padrao):
             obj_vortex = vortex.Obj(self.reason, self.ids, self.pos)
             stoped  = False
 
-            if mode == 1:
-                print(cl.green(txt.msg_2))
-                for atual in range(0, len(self.ids)):
-                    obj_dyno = dyno.Obj(self.reason, self.ids, self.pos)
-                    choice   = obj_dyno
-                    dat      = datetime.now()
-                    moment   = f'{dat.hour}:{dat.minute}:{dat.second}'
-
-                    obj_dyno.ban(atual)
-                    print(cl.green(f'[{moment}] [{atual + 1}/{len(self.ids)}] comando utilizado para o id: {self.ids[atual]}'))
-                    if utils.stop_request(obj_dyno): stoped=True; break
-                    elif atual < len(self.ids) - 1: time.sleep(self.slowmode_dyno)
-
-            elif mode == 2:
-                self.set_pos()
-                self.set_reason()
-                self.set_ids('None', customized=customized)
-                self.set_slowmode_dyno()
-                self.ask_for_change()
+            if 1 <= mode <= 2:
+                if mode == 2:
+                    self.set_pos()
+                    self.set_reason()
+                    self.set_ids('None', customized=customized)
+                    self.set_slowmode_dyno()
+                    self.ask_for_change()
 
                 print(cl.green(txt.msg_2))
                 for atual in range(0, len(self.ids)):
                     obj_dyno = dyno.Obj(self.reason, self.ids, self.pos)
                     choice   = obj_dyno
                     obj_dyno.ban(atual)
-                    dat = datetime.now()
-                    moment = f'{dat.hour}:{dat.minute}:{dat.second}'
-                    print(cl.green(f'[{moment}] [{atual + 1}/{len(self.ids)}] comando utilizado para o id: {self.ids[atual]}'))
+
                     if utils.stop_request(obj_dyno): stoped=True; break
                     elif atual < len(self.ids) - 1: time.sleep(self.slowmode_dyno)
 
             elif mode == 3:
-                print(cl.red('[ERROR] - Modo 3, vortex (padrão) ainda não funciona nesta versão'))
-                stoped=True
+                print(cl.green(txt.msg_2))
+                per_time   = 30
+                all_banned = 0
+                times      = ceil(len(self.ids) / per_time)
+
+                for c in range (0, times):
+
+
+                    
+
+                    all_banned += per_time
+
+                    print(msg)
+
+                    #if utils.stop_request(obj_dyno): stoped=True; break
+                    #elif c < len(self.ids) - 1: time.sleep(self.slowmode_vortex)
+
             elif mode == 4:
                 print(cl.red('[ERROR] - Modo 4, vortex (custoizado) ainda não funciona nesta versão'))
                 stoped=True
@@ -103,7 +105,7 @@ class main(default.padrao):
                 print(cl.green('\n' + '-'*55))
                 print(cl.green('Lista completa.\n'))
 
-        print(cl.green('\n--------------- DELETE para voltar para o menu | ESC para fechar ---------------'))
+        print(cl.green('\n--------------- ENTER para voltar para o menu | ESC para fechar ---------------'))
 
 
 # Iniciando o programa
@@ -115,5 +117,5 @@ if __name__ == '__main__':
             utils.clear_screen()
             quit()
 
-        if is_pressed('delete'):
+        if is_pressed('enter'):
             main().run()
