@@ -54,7 +54,9 @@ class padrao:
             elif ask in 'nao/n':
                 break
             else:
+                utils.clear_screen()
                 print(cl.red('Resposta não condiz com o esperado (sim ou nao)'))
+        utils.clear_screen()
 
 
     def save_changes(self, default=None):

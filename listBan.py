@@ -54,7 +54,6 @@ class main(default.padrao):
         if mode != 6: self.set_ids(self.path, customized=customized)
 
         if len(self.ids) > 0 or mode == 6:
-            obj_vortex = vortex.Obj(self.reason, self.ids, self.pos)
             stoped  = False
 
             if 1 <= mode <= 2:
@@ -74,27 +73,28 @@ class main(default.padrao):
                     if utils.stop_request(obj_dyno): stoped=True; break
                     elif atual < len(self.ids) - 1: time.sleep(self.slowmode_dyno)
 
-            elif mode == 3:
+            elif 3 <= mode <= 4:
+                if mode == 4:
+                    self.set_pos()
+                    self.set_reason()
+                    self.set_ids('None', customized=customized)
+                    self.set_slowmode_vortex()
+                    self.ask_for_change()
+
                 print(cl.green(txt.msg_2))
-                per_time   = 30
+                per_time   = 5
                 all_banned = 0
                 times      = ceil(len(self.ids) / per_time)
 
-                for c in range (0, times):
+                obj_vortex = vortex.Obj(self.reason, self.ids, self.pos, times, per_time)
+                choice     = obj_vortex
 
-
-                    
-
+                for count in range (0, times):
+                    obj_vortex.ban(all_banned, count)
                     all_banned += per_time
 
-                    print(msg)
-
-                    #if utils.stop_request(obj_dyno): stoped=True; break
-                    #elif c < len(self.ids) - 1: time.sleep(self.slowmode_vortex)
-
-            elif mode == 4:
-                print(cl.red('[ERROR] - Modo 4, vortex (custoizado) ainda não funciona nesta versão'))
-                stoped=True
+                    if utils.stop_request(obj_vortex): stoped=True; break
+                    elif count < len(self.ids) - 1: time.sleep(self.slowmode_vortex)
 
             elif mode == 5:
                 stoped=True
@@ -110,7 +110,7 @@ class main(default.padrao):
                 quit()
 
             if not stoped:
-                choice.enviar(f'-- Todos os comandos enviados [{len(self.ids)}/{len(self.ids)}]')
+                choice.enviar(f'-- Todos os comandos enviados | ids [{len(self.ids)}/{len(self.ids)}]')
                 print(cl.green('\n' + '-'*55))
                 print(cl.green('Lista completa.\n'))
 
