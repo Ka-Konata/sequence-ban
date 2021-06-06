@@ -4,6 +4,9 @@ Install [sequence-ban-v1.2.zip](https://github.com/Ka-Konata/sequence-ban/files/
 
 Install [sequence-ban-v2.1(**pre-release**).zip](https://github.com/Ka-Konata/sequence-ban/files/6603240/sequence-banv2.1.pre-release.zip) *(Recomendado)*
 
+Install [sequence-ban-v2.2(**pre-release**).zip](https://github.com/Ka-Konata/sequence-ban/files/6603702/sequence-ban-v2.2.pre-release.zip) *(instável)*
+
+
 *Or use the developer version*
  
 Feito para banir uma lista pré-definida de ids, controlando o teclado e o mouse para enviar os comandos
