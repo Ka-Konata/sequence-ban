@@ -1,0 +1,11 @@
+{
+    "reason": "selfbot/raid [sequence-ban used]",
+    "pos": [
+        50,
+        960
+    ],
+    "path": "ids.txt",
+    "slowmode-dyno": 4,
+    "slowmode-vortex": 25,
+    "first-time": true
+}

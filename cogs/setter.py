@@ -4,7 +4,6 @@ from cogs      import utils
 from pyautogui import position
 from keyboard  import is_pressed
 import crayons as cl
-import time
 
 def setter_reason(default_reason):
     print(cl.green(txt.msg_7))

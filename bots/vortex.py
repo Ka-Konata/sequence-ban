@@ -28,7 +28,7 @@ class Obj:
         for atual in range(0, len(_list)):
             self.atual = atual
             msg += f'{_list[atual]} '
-            print(cl.green(f'[{moment}] [{atual + 1}/{len(_list)}] id: {_list[atual]} adicionado ao comando atual [{count}/{self.times}]'))
+            print(cl.green(f'[{moment}] [{atual + 1}/{len(_list)}] id: {_list[atual]} adicionado ao comando atual [{count + 1}/{self.times}]'))
         msg += f'{self.reason}'
 
         moveTo(self.pos)

@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
 
 from bots import dyno, vortex
-from cogs import setter
 from cogs import utils
 from cogs import default
 import cogs.texts as txt
 
 from keyboard  import is_pressed
 from pyautogui import confirm
-from datetime  import datetime
 from math      import ceil
 import crayons as cl
 import time
@@ -53,7 +51,7 @@ class main(default.padrao):
         customized = True if mode == 2 or mode == 4 or mode == 5 else False
         if mode != 6: self.set_ids(self.path, customized=customized)
 
-        if len(self.ids) > 0 or mode == 6:
+        if len(self.ids) > 0 or mode > 4:
             stoped  = False
 
             if 1 <= mode <= 2:
@@ -94,17 +92,17 @@ class main(default.padrao):
                     all_banned += per_time
 
                     if utils.stop_request(obj_vortex): stoped=True; break
-                    elif count < len(self.ids) - 1: time.sleep(self.slowmode_vortex)
+                    elif count < times - 1: time.sleep(self.slowmode_vortex)
 
             elif mode == 5:
-                stoped=True
-
                 self.set_pos()
                 self.set_reason()
                 self.set_ids('None', customized=customized)
                 self.set_slowmode_dyno()
                 self.set_slowmode_vortex()
                 self.ask_for_change()
+
+                stoped=True
 
             elif mode == 6:
                 quit()
@@ -113,6 +111,9 @@ class main(default.padrao):
                 choice.enviar(f'-- Todos os comandos enviados | ids [{len(self.ids)}/{len(self.ids)}]')
                 print(cl.green('\n' + '-'*55))
                 print(cl.green('Lista completa.\n'))
+        
+        else:
+            print(cl.red("Lista de ids vazia"))
 
         print(cl.green('\n--------------- ENTER para voltar para o menu | ESC para fechar ---------------'))
 
