@@ -9,10 +9,10 @@ class padrao:
 
         self.pre_configs = {
             'reason': 'selfbot/raid [sequence-ban used]',
-            'pos': [50, 962],
+            'pos': [50, 960],
             'path': 'ids.txt',
-            'slowmode-dyno': 4,
-            'slowmode-vortex': 20,
+            'slowmode-dyno': 4.0,
+            'slowmode-vortex': 25.0,
             'first-time':True
         }
 
@@ -45,16 +45,18 @@ class padrao:
         while True:
             print(cl.green(txt.msg_8))
             ask = str(input('salvar? '))
-            if ask in 'sim/s':
+            if ask in 'sim':
                 self.save_changes()
                 break
-            elif ask == 'default':
+            elif ask == 'reset':
                 self.save_changes(self.pre_configs)
                 break
-            elif ask in 'nao/n':
+            elif ask in 'naonão':
                 break
             else:
+                utils.clear_screen()
                 print(cl.red('Resposta não condiz com o esperado (sim ou nao)'))
+        utils.clear_screen()
 
 
     def save_changes(self, default=None):

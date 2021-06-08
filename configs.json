@@ -2,10 +2,10 @@
     "reason": "selfbot/raid [sequence-ban used]",
     "pos": [
         50,
-        962
+        960
     ],
     "path": "ids.txt",
-    "slowmode-dyno": 4,
-    "slowmode-vortex": 20,
+    "slowmode-dyno": 4.0,
+    "slowmode-vortex": 25.0,
     "first-time": true
 }

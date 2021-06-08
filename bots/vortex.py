@@ -8,28 +8,32 @@ from datetime  import datetime
 import crayons as cl
 
 class Obj:
-    def __init__(self, reason, ids, pos):
-        self.reason = reason
-        self.ids    = ids
-        self.pos    = pos
+    def __init__(self, reason, ids, pos, times, per_time):
+        self.reason   = reason
+        self.ids      = ids
+        self.pos      = pos
+        self.times    = times
+        self.per_time = per_time
 
 
-    def ban(self, all_banned, per_time, count, times):
+    def ban(self, all_banned, count):
         '''Envia o comando de ban'''
 
         dat      = datetime.now()
         moment   = f'{dat.hour}:{dat.minute}:{dat.second}'
 
         # Criando a mensagem do comando com todos os ids
-        msg = f'>>ban '
-        for atual in range(0, self.ids[all_banned:all_banned + per_time]):
-            msg += f'{self.ids[atual]}\n'
-            print(cl.green(f'[{moment}] [{atual + 1}/{len(self.ids)}] id: {self.ids[atual]} adicionado ao comando atual [{count}/{times}]'))
-        msg += f'\r {self.reason}'
+        msg   = f'>>ban '
+        _list = self.ids[all_banned:all_banned + self.per_time]
+        for atual in range(0, len(_list)):
+            self.atual = atual
+            msg += f'{_list[atual]} '
+            print(cl.green(f'[{moment}] [{atual + 1}/{len(_list)}] id: {_list[atual]} adicionado ao comando atual [{count + 1}/{self.times}]'))
+        msg += f'{self.reason}'
 
         moveTo(self.pos)
         click()
-        write(f'?ban {self.ids[atual]} {self.reason}')
+        write(msg)
         press('enter')
 
     def enviar(self, msg):
@@ -37,5 +41,5 @@ class Obj:
 
         moveTo(self.pos)
         click()
-        write('[Dyno mode] ' + msg)
+        write('[Vortex mode] ' + msg)
         press('enter')
