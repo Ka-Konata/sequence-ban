@@ -82,7 +82,7 @@ class main(default.padrao):
                     self.ask_for_change()
 
                 print(cl.green(txt.msg_2))
-                per_time   = 5
+                per_time   = 30
                 all_banned = 0
                 times      = ceil(len(self.ids) / per_time)
 

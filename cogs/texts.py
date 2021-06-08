@@ -18,7 +18,7 @@ hello = """███  ██
                                        ███████████████  ███████████    ████         █████████
                                         ██                  ████"""
 
-version = 'Sequence Ban - v2.2'
+version = 'Sequence Ban - v2.3'
 
 msg_1 = '''----------- Escolha o modo que deseja usar ------------
 Digite o número correspondente a sua scolha
